@@ -18,7 +18,7 @@ const PROFILE = {
   githubUsername: "LindokuhleChili",
   githubUrl: "https://github.com/LindokuhleChili",
   githubHandle: "github.com/LindokuhleChili",
-  postCount: 2
+  postCount: 4
 };
 
 const MONTH_NAMES = [

@@ -1,5 +1,39 @@
 import { VerifiedBadge, ReplyIcon, RetweetIcon, LikeIcon, ViewsIcon, ShareIcon } from "./Icons";
 
+function TweetImage({ project }) {
+  const image = (
+    <img
+      src={project.image}
+      alt={project.imageAlt ?? `Screenshot of ${project.id}`}
+      className="tweet-image"
+      width={project.imageWidth}
+      height={project.imageHeight}
+      style={
+        project.imageMaxWidth
+          ? { maxWidth: `min(100%, ${project.imageMaxWidth}px)`, height: "auto" }
+          : undefined
+      }
+    />
+  );
+
+  const framed = project.linkUrl ? (
+    <a href={project.linkUrl} target="_blank" rel="noreferrer" className="tweet-image-link">
+      {image}
+    </a>
+  ) : (
+    <div className="tweet-image-link">{image}</div>
+  );
+
+  if (!project.imageCredit) return framed;
+
+  return (
+    <figure className="tweet-figure">
+      {framed}
+      <figcaption className="tweet-image-credit">{project.imageCredit}</figcaption>
+    </figure>
+  );
+}
+
 export function TweetCard({ project }) {
   return (
     <article className="tweet">
@@ -16,24 +50,38 @@ export function TweetCard({ project }) {
 
         <p className="tweet-text">{project.text}</p>
 
-        <p className="tweet-hashtags">
-          {project.hashtags.map((tag) => (
-            <span key={tag}>#{tag}</span>
-          ))}
-        </p>
-
-        {project.image && (
-          <a href={project.linkUrl} target="_blank" rel="noreferrer" className="tweet-image-link">
-            <img src={project.image} alt={`Screenshot of ${project.id}`} className="tweet-image" />
-          </a>
+        {project.hashtags?.length > 0 && (
+          <p className="tweet-hashtags">
+            {project.hashtags.map((tag) => (
+              <span key={tag}>#{tag}</span>
+            ))}
+          </p>
         )}
 
-        <a href={project.linkUrl} target="_blank" rel="noreferrer" className="tweet-link-card">
-          <div className="tweet-link-card-inner">
-            <p className="tweet-link-label">{project.linkLabel}</p>
-            <p className="tweet-link-title">View the live project</p>
+        {project.image && <TweetImage project={project} />}
+
+        {project.embedUrl && (
+          <div className="tweet-embed">
+            <iframe
+              className="tweet-embed-frame"
+              src={project.embedUrl}
+              title={project.embedTitle}
+              loading="lazy"
+              allow="fullscreen; picture-in-picture; encrypted-media"
+              allowFullScreen
+              referrerPolicy="strict-origin-when-cross-origin"
+            />
           </div>
-        </a>
+        )}
+
+        {project.linkUrl && (
+          <a href={project.linkUrl} target="_blank" rel="noreferrer" className="tweet-link-card">
+            <div className="tweet-link-card-inner">
+              <p className="tweet-link-label">{project.linkLabel}</p>
+              <p className="tweet-link-title">{project.linkTitle ?? "View the live project"}</p>
+            </div>
+          </a>
+        )}
 
         <div className="tweet-stats">
           <span className="tweet-stat">
