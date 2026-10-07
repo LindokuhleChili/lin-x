@@ -1,6 +1,32 @@
 import verificationEngineImage from "../assets/verification-engine-preview.png";
+import aiForAfricaTeamImage from "../assets/ai-for-africa-winning-team.jpg";
 
 export const projects = [
+  {
+    id: "ai-for-africa-winning-team",
+    date: "Oct 2",
+    text: "1st Place, Winning Team: Vodacom / UJ / AWS AI for Africa Challenge, 2 October 2026, Vodaworld Midrand.",
+    image: aiForAfricaTeamImage,
+    imageAlt:
+      "Group photo of the winning team on stage at Vodaworld Midrand, holding certificates and gift bags in front of Vodacom and AWS backdrops. Lindokuhle Chili is in the group, wearing all black.",
+    imageWidth: 720,
+    imageHeight: 830,
+    imageMaxWidth: 720,
+    imageCredit: "Photo: UJ School of Consumer Intelligence and Information Systems",
+    stats: { replies: 4, retweets: 6, likes: 28, views: "1.4K" }
+  },
+  {
+    id: "ai-for-africa-coverage",
+    date: "Oct 2",
+    text: "Coverage of the Vodacom / UJ / AWS AI for Africa Challenge by UJ SCiiS.",
+    embedUrl: "https://www.linkedin.com/embed/feed/update/urn:li:activity:7513101563935227904",
+    embedTitle: "Coverage of the Vodacom / UJ / AWS AI for Africa Challenge by UJ SCiiS",
+    linkLabel: "linkedin.com",
+    linkTitle: "Watch the coverage on LinkedIn",
+    linkUrl:
+      "https://www.linkedin.com/posts/uj-school-of-consumer-intelligence-and-information-systems_aiforafricachallenge-uj-sciis-activity-7513101563935227904-cpK3",
+    stats: { replies: 2, retweets: 3, likes: 16, views: "860" }
+  },
   {
     id: "verification-engine",
     date: "Aug 30",

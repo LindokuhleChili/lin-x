@@ -299,6 +299,10 @@
   color: var(--x-blue);
 }
 
+.tweet-figure {
+  margin: 12px 0 0;
+}
+
 .tweet-image-link {
   margin-top: 12px;
   display: block;
@@ -307,9 +311,36 @@
   border: 1px solid var(--x-border);
 }
 
+.tweet-figure .tweet-image-link {
+  margin-top: 0;
+}
+
 .tweet-image {
   width: 100%;
   display: block;
+}
+
+.tweet-image-credit {
+  margin: 6px 0 0;
+  font-size: 13px;
+  line-height: 1.3;
+  color: var(--x-text-dim);
+}
+
+.tweet-embed {
+  margin-top: 12px;
+  overflow: hidden;
+  border-radius: 16px;
+  border: 1px solid var(--x-border);
+  background: #fff;
+  max-width: 100%;
+}
+
+.tweet-embed-frame {
+  display: block;
+  width: 100%;
+  height: 720px;
+  border: 0;
 }
 
 .tweet-link-card {
