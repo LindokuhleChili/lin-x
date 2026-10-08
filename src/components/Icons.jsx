@@ -30,33 +30,21 @@ export function CalendarIcon({ size = 16 }) {
   );
 }
 
-export function ReplyIcon({ size = 18 }) {
+export function LikeIcon({ size = 18, liked = false }) {
   return (
-    <svg width={size} height={size} viewBox="0 0 24 24" fill="var(--x-text-dim)">
-      <path d="M1.75 3.5h20.5v13.75a1.75 1.75 0 0 1-1.75 1.75H6.63l-4.88 4V3.5zm2 1.9v13.4l2.06-1.68h15.19V5.4H3.75z" />
-    </svg>
-  );
-}
-
-export function RetweetIcon({ size = 18 }) {
-  return (
-    <svg width={size} height={size} viewBox="0 0 24 24" fill="var(--x-text-dim)">
-      <path d="M4.5 3.88l4.43 4.43-1.41 1.41-2.02-2.02v10.55h9v2h-11v-12.55l-2.02 2.02-1.41-1.41 4.43-4.43zm15 16.24l-4.43-4.43 1.41-1.41 2.02 2.02v-10.55h-9v-2h11v12.55l2.02-2.02 1.41 1.41-4.43 4.43z" />
-    </svg>
-  );
-}
-
-export function LikeIcon({ size = 18 }) {
-  return (
-    <svg width={size} height={size} viewBox="0 0 24 24" fill="var(--x-text-dim)">
-      <path d="M12 21.638h-.014C9.403 21.59 1.95 14.856 1.95 8.478c0-3.064 2.525-5.754 5.403-5.754 2.29 0 3.83 1.58 4.646 2.73.814-1.148 2.354-2.73 4.645-2.73 2.88 0 5.404 2.69 5.404 5.755 0 6.376-7.454 13.11-10.037 13.157H12z" />
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+      {liked ? (
+        <path d="M12 21.638h-.014C9.403 21.59 1.95 14.856 1.95 8.478c0-3.064 2.525-5.754 5.403-5.754 2.29 0 3.83 1.58 4.646 2.73.814-1.148 2.354-2.73 4.645-2.73 2.88 0 5.404 2.69 5.404 5.755 0 6.376-7.454 13.11-10.037 13.157H12z" />
+      ) : (
+        <path d="M16.697 5.5c-1.222-.06-2.679.51-3.89 2.16l-.805 1.09-.806-1.09C9.984 6.01 8.526 5.44 7.304 5.5c-1.243.07-2.349.78-2.91 1.91-.552 1.12-.633 2.78.479 4.82 1.074 1.97 3.257 4.27 7.129 6.61 3.87-2.34 6.052-4.64 7.126-6.61 1.111-2.04 1.03-3.7.477-4.82-.561-1.13-1.666-1.84-2.908-1.91zm4.187 7.69c-1.351 2.48-4.001 5.12-8.379 7.67l-.503.3-.504-.3c-4.379-2.55-7.029-5.19-8.382-7.67-1.36-2.5-1.41-4.86-.514-6.67.887-1.79 2.647-2.91 4.601-3.01 1.651-.09 3.368.56 4.798 2.01 1.429-1.45 3.146-2.1 4.796-2.01 1.954.1 3.714 1.22 4.601 3.01.896 1.81.846 4.17-.514 6.67z" />
+      )}
     </svg>
   );
 }
 
 export function ViewsIcon({ size = 18 }) {
   return (
-    <svg width={size} height={size} viewBox="0 0 24 24" fill="var(--x-text-dim)">
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
       <path d="M8.75 21V3h2v18h-2zM18 21V8.5h2V21h-2zM4 21l.004-10h2L6 21H4zm9.248 0v-7h2v7h-2z" />
     </svg>
   );
@@ -64,7 +52,7 @@ export function ViewsIcon({ size = 18 }) {
 
 export function ShareIcon({ size = 18 }) {
   return (
-    <svg width={size} height={size} viewBox="0 0 24 24" fill="var(--x-text-dim)">
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
       <path d="M12 2.59l5.7 5.7-1.41 1.42L13 6.41V16h-2V6.41l-3.29 3.3-1.41-1.42L12 2.59zM21 15l-.02 3.51c0 1.38-1.12 2.49-2.5 2.49H5.5C4.11 21 3 19.88 3 18.5V15h2v3.5c0 .28.22.5.5.5h12.98c.28 0 .5-.22.5-.5L19 15h2z" />
     </svg>
   );

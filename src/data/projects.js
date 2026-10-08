@@ -12,8 +12,7 @@ export const projects = [
     imageWidth: 720,
     imageHeight: 830,
     imageMaxWidth: 720,
-    imageCredit: "Photo: UJ School of Consumer Intelligence and Information Systems",
-    stats: { replies: 4, retweets: 6, likes: 28, views: "1.4K" }
+    imageCredit: "Photo: UJ School of Consumer Intelligence and Information Systems"
   },
   {
     id: "ai-for-africa-coverage",
@@ -24,8 +23,7 @@ export const projects = [
     linkLabel: "linkedin.com",
     linkTitle: "Watch the coverage on LinkedIn",
     linkUrl:
-      "https://www.linkedin.com/posts/uj-school-of-consumer-intelligence-and-information-systems_aiforafricachallenge-uj-sciis-activity-7513101563935227904-cpK3",
-    stats: { replies: 2, retweets: 3, likes: 16, views: "860" }
+      "https://www.linkedin.com/posts/uj-school-of-consumer-intelligence-and-information-systems_aiforafricachallenge-uj-sciis-activity-7513101563935227904-cpK3"
   },
   {
     id: "verification-engine",
@@ -35,8 +33,7 @@ export const projects = [
     image: verificationEngineImage,
     linkLabel: "master.ds1rwbch2twux.amplifyapp.com",
     linkUrl: "https://master.ds1rwbch2twux.amplifyapp.com",
-    githubUrl: "https://github.com/LindokuhleChili/verification-engine",
-    stats: { replies: 3, retweets: 5, likes: 21, views: "1.2K" }
+    githubUrl: "https://github.com/LindokuhleChili/verification-engine"
   },
   {
     id: "compuclass",
@@ -45,7 +42,6 @@ export const projects = [
     hashtags: ["ReactNative", "Supabase", "TeamLead", "EdTech"],
     linkLabel: "github.com/Channel-Zero/Compuclass-v1.5",
     linkUrl: "https://github.com/Channel-Zero/Compuclass-v1.5",
-    githubUrl: "https://github.com/Channel-Zero/Compuclass-v1.5",
-    stats: { replies: 2, retweets: 3, likes: 14, views: "612" }
+    githubUrl: "https://github.com/Channel-Zero/Compuclass-v1.5"
   }
 ];
