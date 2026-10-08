@@ -1,4 +1,6 @@
-import { VerifiedBadge, ReplyIcon, RetweetIcon, LikeIcon, ViewsIcon, ShareIcon } from "./Icons";
+import { useEffect, useRef, useState } from "react";
+import { VerifiedBadge, LikeIcon, ViewsIcon, ShareIcon } from "./Icons";
+import { usePostStats } from "../usePostStats";
 
 function TweetImage({ project }) {
   const image = (
@@ -34,7 +36,80 @@ function TweetImage({ project }) {
   );
 }
 
+function copyWithTextarea(text) {
+  const field = document.createElement("textarea");
+  field.value = text;
+  field.setAttribute("readonly", "");
+  field.style.position = "fixed";
+  field.style.top = "0";
+  field.style.left = "0";
+  field.style.width = "1px";
+  field.style.height = "1px";
+  field.style.opacity = "0";
+  document.body.appendChild(field);
+  field.focus();
+  field.select();
+  field.setSelectionRange(0, text.length);
+  let copied = false;
+  try {
+    copied = document.execCommand("copy");
+  } catch {
+    copied = false;
+  }
+  document.body.removeChild(field);
+  return copied;
+}
+
+async function copyText(text) {
+  // execCommand has to run inside the click, before any await, or the browser
+  // drops the user gesture and the copy fails.
+  if (copyWithTextarea(text)) return;
+
+  if (!navigator.clipboard?.writeText) throw new Error("copy failed");
+
+  await Promise.race([
+    navigator.clipboard.writeText(text),
+    new Promise((_, reject) => {
+      setTimeout(() => reject(new Error("clipboard timeout")), 1000);
+    })
+  ]);
+}
+
+function useCopySiteLink() {
+  const [copied, setCopied] = useState(false);
+  const timerRef = useRef(null);
+
+  useEffect(() => {
+    return () => {
+      if (timerRef.current) clearTimeout(timerRef.current);
+    };
+  }, []);
+
+  async function copySiteLink() {
+    try {
+      await copyText(window.location.origin);
+      setCopied(true);
+      if (timerRef.current) clearTimeout(timerRef.current);
+      timerRef.current = setTimeout(() => setCopied(false), 2000);
+    } catch {
+      setCopied(false);
+    }
+  }
+
+  return { copied, copySiteLink };
+}
+
+function likeLabel(liked, stats) {
+  const action = liked ? "Liked" : "Like";
+  if (!stats) return action;
+  const noun = stats.likes === 1 ? "like" : "likes";
+  return `${action}, ${stats.likes} ${noun}`;
+}
+
 export function TweetCard({ project }) {
+  const { stats, liked, ready, liking, like } = usePostStats(project.id);
+  const { copied, copySiteLink } = useCopySiteLink();
+
   return (
     <article className="tweet">
       <div className="tweet-avatar">LC</div>
@@ -83,24 +158,51 @@ export function TweetCard({ project }) {
           </a>
         )}
 
-        <div className="tweet-stats">
-          <span className="tweet-stat">
-            <ReplyIcon />
-            {project.stats.replies}
-          </span>
-          <span className="tweet-stat">
-            <RetweetIcon />
-            {project.stats.retweets}
-          </span>
-          <span className="tweet-stat">
-            <LikeIcon />
-            {project.stats.likes}
-          </span>
-          <span className="tweet-stat">
-            <ViewsIcon />
-            {project.stats.views}
-          </span>
-          <ShareIcon />
+        <div className="tweet-actions">
+          <button
+            type="button"
+            className={liked ? "tweet-action like liked" : "tweet-action like"}
+            onClick={like}
+            disabled={liked || liking || !ready}
+            aria-pressed={liked}
+            aria-label={likeLabel(liked, stats)}
+          >
+            <span className="tweet-action-icon">
+              <LikeIcon liked={liked} />
+            </span>
+            {stats ? <span className="tweet-action-count">{stats.likes}</span> : null}
+          </button>
+
+          {stats ? (
+            <span
+              className="tweet-stat"
+              aria-label={`${stats.views} ${stats.views === 1 ? "view" : "views"}`}
+            >
+              <span className="tweet-stat-icon">
+                <ViewsIcon />
+              </span>
+              <span className="tweet-action-count" aria-hidden="true">
+                {stats.views}
+              </span>
+            </span>
+          ) : (
+            <span className="tweet-stat" />
+          )}
+
+          <button
+            type="button"
+            className={copied ? "tweet-action share copied" : "tweet-action share"}
+            onClick={copySiteLink}
+            aria-label={copied ? "Link copied" : "Copy link to this site"}
+          >
+            <span className="tweet-action-icon">
+              <ShareIcon />
+            </span>
+            {copied ? <span className="tweet-action-count">Copied</span> : null}
+            <span className="visually-hidden" aria-live="polite">
+              {copied ? "Link copied" : ""}
+            </span>
+          </button>
         </div>
       </div>
     </article>

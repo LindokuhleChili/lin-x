@@ -379,19 +379,88 @@
   color: var(--x-text);
 }
 
-.tweet-stats {
-  margin-top: 12px;
-  display: flex;
+.tweet-actions {
+  margin-top: 8px;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   max-width: 425px;
-  justify-content: space-between;
+  align-items: center;
   color: var(--x-text-dim);
 }
 
-.tweet-stat {
+.tweet-action {
+  display: inline-flex;
+  align-items: center;
+  justify-self: start;
+  border: none;
+  background: transparent;
+  padding: 0;
+  color: inherit;
+  font-size: 13px;
+  line-height: 1;
+}
+
+.tweet-action.share {
+  justify-self: end;
+}
+
+.tweet-action-icon,
+.tweet-stat-icon {
   display: flex;
   align-items: center;
-  gap: 6px;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  border-radius: 9999px;
+}
+
+.tweet-action-count {
+  padding-right: 8px;
+}
+
+.tweet-action.like:hover:not(:disabled) {
+  color: var(--x-like);
+}
+
+.tweet-action.like:hover:not(:disabled) .tweet-action-icon {
+  background: var(--x-like-tint);
+}
+
+.tweet-action.like.liked {
+  color: var(--x-like);
+}
+
+.tweet-action.like:disabled {
+  cursor: default;
+}
+
+.tweet-action.share:hover .tweet-action-icon,
+.tweet-action.share.copied {
+  color: var(--x-blue);
+}
+
+.tweet-action.share:hover .tweet-action-icon {
+  background: var(--x-blue-tint);
+}
+
+.tweet-stat {
+  display: inline-flex;
+  align-items: center;
+  justify-self: center;
   font-size: 13px;
+  line-height: 1;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
 }
 
 /* Media tab */
