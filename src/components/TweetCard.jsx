@@ -36,22 +36,43 @@ function TweetImage({ project }) {
   );
 }
 
-async function copyText(text) {
-  if (navigator.clipboard?.writeText) {
-    await navigator.clipboard.writeText(text);
-    return;
-  }
-
+function copyWithTextarea(text) {
   const field = document.createElement("textarea");
   field.value = text;
   field.setAttribute("readonly", "");
   field.style.position = "fixed";
-  field.style.left = "-9999px";
+  field.style.top = "0";
+  field.style.left = "0";
+  field.style.width = "1px";
+  field.style.height = "1px";
+  field.style.opacity = "0";
   document.body.appendChild(field);
+  field.focus();
   field.select();
-  const copied = document.execCommand("copy");
+  field.setSelectionRange(0, text.length);
+  let copied = false;
+  try {
+    copied = document.execCommand("copy");
+  } catch {
+    copied = false;
+  }
   document.body.removeChild(field);
-  if (!copied) throw new Error("copy failed");
+  return copied;
+}
+
+async function copyText(text) {
+  // execCommand has to run inside the click, before any await, or the browser
+  // drops the user gesture and the copy fails.
+  if (copyWithTextarea(text)) return;
+
+  if (!navigator.clipboard?.writeText) throw new Error("copy failed");
+
+  await Promise.race([
+    navigator.clipboard.writeText(text),
+    new Promise((_, reject) => {
+      setTimeout(() => reject(new Error("clipboard timeout")), 1000);
+    })
+  ]);
 }
 
 function useCopySiteLink() {
