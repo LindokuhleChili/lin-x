@@ -46,7 +46,7 @@ export const projects = [
   },
   {
     id: "amazon-q-challenge",
-    date: "Oct 2026",
+    date: "Oct 2025",
     text: "Amazon Q Developer Coding Challenge.",
     video: "/amazon-q-challenge.mp4",
     videoPoster: "/amazon-q-challenge-poster.jpg",
