@@ -1,6 +1,6 @@
 import { DocumentIcon, DownloadIcon } from "./Icons";
 
-const CV_PATH = "/Lindo-Chili-CV.pdf";
+const CV_PATH = "/Lindo%20Chile%20CV%20General%20October.pdf";
 
 export function MediaTab() {
   return (
@@ -11,8 +11,8 @@ export function MediaTab() {
         </div>
 
         <div className="media-info">
-          <p className="media-title">Lindo Chili, CV</p>
-          <p className="media-subtitle">PDF, updated September 2026</p>
+          <p className="media-title">Lindo Chile CV General October</p>
+          <p className="media-subtitle">PDF, updated October 2026</p>
         </div>
 
         <span className="media-view-button">
