@@ -37,11 +37,11 @@ export const projects = [
   },
   {
     id: "compuclass",
-    date: "Nov 2025",
-    text: "Led a 6 person team building CompuClass, a Learning Management System with a 3D Windows environment simulator, designed for schools without laptop access. Added the simulator, and personally built the teacher portal, quiz engine, and the full Supabase schema.",
+    date: "2026",
+    text: "Latest project: Led a 6 person team building CompuClass, a Learning Management System with a 3D Windows environment simulator, designed for schools without laptop access. Added the simulator, and personally built the teacher portal, quiz engine, and the full Supabase schema.",
     hashtags: ["ReactNative", "Supabase", "TeamLead", "EdTech"],
-    linkLabel: "github.com/Channel-Zero/Compuclass-v1.5",
-    linkUrl: "https://github.com/Channel-Zero/Compuclass-v1.5",
+    linkLabel: "compuclass-v15.vercel.app",
+    linkUrl: "https://compuclass-v15.vercel.app",
     githubUrl: "https://github.com/Channel-Zero/Compuclass-v1.5"
   }
 ];
