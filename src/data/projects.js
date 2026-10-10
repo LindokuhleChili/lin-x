@@ -5,7 +5,7 @@ export const projects = [
   {
     id: "ai-for-africa-winning-team",
     date: "Oct 2",
-    text: "1st Place, Winning Team: Vodacom / UJ / AWS AI for Africa Challenge, 2 October 2026, Vodaworld Midrand.",
+    text: "Won as part of the First Team: Vodacom / UJ / AWS AI for Africa Challenge, 2 October 2026, Vodaworld Midrand.",
     image: aiForAfricaTeamImage,
     imageAlt:
       "Group photo of the winning team on stage at Vodaworld Midrand, holding certificates and gift bags in front of Vodacom and AWS backdrops. Lindokuhle Chili is in the group, wearing all black.",
