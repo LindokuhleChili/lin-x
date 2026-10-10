@@ -43,5 +43,16 @@ export const projects = [
     linkLabel: "compuclass-v15.vercel.app",
     linkUrl: "https://compuclass-v15.vercel.app",
     githubUrl: "https://github.com/Channel-Zero/Compuclass-v1.5"
+  },
+  {
+    id: "amazon-q-challenge",
+    date: "Oct 2026",
+    text: "Amazon Q Developer Coding Challenge.",
+    video: "/amazon-q-challenge.mp4",
+    videoPoster: "/amazon-q-challenge-poster.jpg",
+    videoLabel: "Two people holding a giant novelty check for the Amazon Q Developer Coding Challenge, an Amazon gift card worth fifty dollars.",
+    videoWidth: 720,
+    videoHeight: 1280,
+    videoMaxWidth: 360
   }
 ];

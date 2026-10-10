@@ -36,6 +36,30 @@ function TweetImage({ project }) {
   );
 }
 
+function TweetVideo({ project }) {
+  return (
+    <div className="tweet-video-wrap">
+      <video
+        className="tweet-video"
+        controls
+        playsInline
+        preload="metadata"
+        poster={project.videoPoster}
+        width={project.videoWidth}
+        height={project.videoHeight}
+        aria-label={project.videoLabel}
+        style={
+          project.videoMaxWidth
+            ? { maxWidth: `min(100%, ${project.videoMaxWidth}px)`, height: "auto" }
+            : undefined
+        }
+      >
+        <source src={project.video} type="video/mp4" />
+      </video>
+    </div>
+  );
+}
+
 function copyWithTextarea(text) {
   const field = document.createElement("textarea");
   field.value = text;
@@ -134,6 +158,8 @@ export function TweetCard({ project }) {
         )}
 
         {project.image && <TweetImage project={project} />}
+
+        {project.video && <TweetVideo project={project} />}
 
         {project.embedUrl && (
           <div className="tweet-embed">

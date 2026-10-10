@@ -320,6 +320,21 @@
   display: block;
 }
 
+.tweet-video-wrap {
+  margin-top: 12px;
+  overflow: hidden;
+  border-radius: 16px;
+  border: 1px solid var(--x-border);
+  background: #000;
+  width: fit-content;
+  max-width: 100%;
+}
+
+.tweet-video {
+  width: 100%;
+  display: block;
+}
+
 .tweet-image-credit {
   margin: 6px 0 0;
   font-size: 13px;
