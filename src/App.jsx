@@ -18,9 +18,14 @@ export default function App() {
 
         {activeTab === "Media" && <MediaTab />}
 
-        {(activeTab === "Replies" || activeTab === "Highlights") && (
-          <p className="empty-state">Nothing here yet.</p>
+        {activeTab === "Replies" && (
+          <p className="empty-state">
+            Got something you want to say or talk about? I'm always open to a conversation. Just send me an email at{" "}
+            <a href="mailto:lindo.chili18@gmail.com">lindo.chili18@gmail.com</a>.
+          </p>
         )}
+
+        {activeTab === "Highlights" && <p className="empty-state">Nothing here yet.</p>}
       </main>
 
       <footer className="app-footer">

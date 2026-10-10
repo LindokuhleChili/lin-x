@@ -549,3 +549,12 @@
   font-size: 13px;
   color: var(--x-text-dim);
 }
+
+.empty-state a {
+  color: var(--x-blue);
+  text-decoration: none;
+}
+
+.empty-state a:hover {
+  text-decoration: underline;
+}
