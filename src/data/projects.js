@@ -1,7 +1,19 @@
 import verificationEngineImage from "../assets/verification-engine-preview.png";
 import aiForAfricaTeamImage from "../assets/ai-for-africa-winning-team.jpg";
+import { certifications } from "./certifications";
+
+const azureAiAssociate = certifications.find(
+  (certification) => certification.id === "azure-ai-cloud-developer-associate"
+);
 
 export const projects = [
+  {
+    id: azureAiAssociate.id,
+    date: "Oct 18",
+    text: "Earned Microsoft Certified: Azure AI Cloud Developer Associate.",
+    hashtags: ["Azure", "Microsoft", "CloudEngineering"],
+    credential: azureAiAssociate
+  },
   {
     id: "ai-for-africa-winning-team",
     date: "Oct 2",
