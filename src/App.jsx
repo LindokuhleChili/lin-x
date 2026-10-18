@@ -25,7 +25,10 @@ export default function App() {
           </p>
         )}
 
-        {activeTab === "Highlights" && <p className="empty-state">Nothing here yet.</p>}
+        {activeTab === "Highlights" &&
+          projects
+            .filter((project) => project.credential)
+            .map((project) => <TweetCard key={project.id} project={project} />)}
       </main>
 
       <footer className="app-footer">

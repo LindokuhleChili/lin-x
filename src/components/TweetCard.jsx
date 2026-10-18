@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { VerifiedBadge, LikeIcon, ViewsIcon, ShareIcon } from "./Icons";
 import { usePostStats } from "../usePostStats";
+import { CredentialCard } from "./CredentialCard";
 
 function TweetImage({ project }) {
   const image = (
@@ -156,6 +157,8 @@ export function TweetCard({ project }) {
             ))}
           </p>
         )}
+
+        {project.credential && <CredentialCard certification={project.credential} />}
 
         {project.image && <TweetImage project={project} />}
 
