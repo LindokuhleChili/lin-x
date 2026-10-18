@@ -9,7 +9,7 @@ export const certifications = [
     expires: "October 19, 2027",
     credentialId: "B04DDABD2A002007",
     verifyUrl:
-      "https://learn.microsoft.com/en-us/users/lindochili-0135/credentials/certification/azure-ai-cloud-developer-associate?tab=credentials-tab",
+      "https://learn.microsoft.com/api/credentials/share/en-us/LindoChili-0135/B04DDABD2A002007?sharingId=99184C7D43B346BE",
     badge: associateBadge,
     badgeAlt: "Microsoft Certified Associate badge"
   }
