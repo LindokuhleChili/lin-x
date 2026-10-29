@@ -1,5 +1,6 @@
 import verificationEngineImage from "../assets/verification-engine-preview.png";
 import aiForAfricaTeamImage from "../assets/ai-for-africa-winning-team.jpg";
+import aigsFirstPrizeImage from "../assets/aigs-first-prize.jpg";
 import { certifications } from "./certifications";
 
 const azureAiAssociate = certifications.find(
@@ -7,6 +8,19 @@ const azureAiAssociate = certifications.find(
 );
 
 export const projects = [
+  {
+    id: "aigs-first-prize",
+    date: "Oct 29",
+    text: "Grateful and still a little stunned: I had the privilege of leading our three-person team, Team Inception, and together we won First Prize (R20,000) at the Progress OpenEdge AIGS AI Innovation Challenge with AIE. We built Mzansi Farmer AI, an AI farming assistant on Progress OpenEdge 12.8 (ABL + PASOE) with a Fastify Node API, Gemini, a tool-using agent with safety rules, and live ESP32 soil moisture and tank level sensors. This win belongs to the whole team. Thank you to Progress, AIGS and AIE.",
+    hashtags: ["ProgressOpenEdge", "AI", "AgriTech", "IoT", "Hackathon"],
+    image: aigsFirstPrizeImage,
+    imageAlt:
+      "Lindokuhle Chili standing behind a giant First Prize cheque for R20,000 from the Progress OpenEdge AIGS AI Innovation Challenge, in front of AIE banners.",
+    imageWidth: 720,
+    imageHeight: 960,
+    imageMaxWidth: 480,
+    githubUrl: "https://github.com/LindokuhleChili/Mzansi-Farmer-Projects"
+  },
   {
     id: azureAiAssociate.id,
     date: "Oct 18",
